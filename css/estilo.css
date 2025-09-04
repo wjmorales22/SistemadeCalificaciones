@@ -1,0 +1,36 @@
+/* Sobrescribe el color primario (blue) */
+.primary-color {
+    background-color: #01a08e !important;
+    color: #ffffff !important;
+}
+
+/* Cambiar color de enlaces y otros elementos si quisieras */
+a {
+    color: #01a08e !important;
+}
+
+/* Opcional: cambiar navbar */
+nav {
+    background-color: #01a08e !important;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    /* El contenido principal ocupa todo el espacio posible */
+}
+
+footer {
+    flex-shrink: 0;
+    color: white;
+    padding: 1rem;
+    margin-top: 20px;
+    background-color: #01a08e !important;
+}
