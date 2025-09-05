@@ -21,7 +21,7 @@ if ($_SESSION['role_id'] == 1) {
           <a href="/oratoria/pages/dashboard.php" class="btn primary-color white-text">Ir a Dashboard</a>
         </div>
         <div class="row">
-          <a href="#usuarios.php" class="waves-effect waves-light btn primary-color white-text">Gestionar usuarios</a>
+          <a href="gestionarUsuarios.php" class="waves-effect waves-light btn primary-color white-text">Gestionar usuarios</a>
           <a href="#estudiantes.php" class="waves-effect waves-light btn primary-color white-text">Gestionar estudiantes y
             notas</a>
         </div>

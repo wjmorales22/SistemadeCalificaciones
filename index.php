@@ -29,29 +29,34 @@
             background-color: #01a08e !important;
             color: #ffffff !important;
         }
+
         .custom-navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1565c0; /* color azul material */
-    padding: 0 20px;
-    height: 64px; /* altura típica de navbar */
-  }
-  .custom-navbar img {
-    height: 48px; /* ajusta la altura de la imagen */
-  }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #1565c0;
+            /* color azul material */
+            padding: 0 20px;
+            height: 64px;
+            /* altura típica de navbar */
+        }
+
+        .custom-navbar img {
+            height: 48px;
+            /* ajusta la altura de la imagen */
+        }
     </style>
 </head>
 
 <body class="blue lighten-5">
     <div class="custom-navbar primary-color">
-  <img src="assets/logo.png" alt="Logo" />
-</div>
+        <img src="assets/logo.png" alt="Logo" />
+    </div>
 
     <main>
         <div class="container">
             <h3 class="blue-text text-darken-3">Sistema de Calificación para Oratoria</h3>
-            
+
             <div class="section">
                 <a href="login.php" class="btn-large waves-effect waves-light primary-color">Iniciar Sesión</a>
                 <a href="register.php" class="btn-large waves-effect waves-light primary-color">Registrarse</a>

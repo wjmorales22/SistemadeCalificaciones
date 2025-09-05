@@ -2,7 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <script>
   // Inicializar componentes JS si hace falta (ejemplo dropdown)
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.dropdown-trigger');
     M.Dropdown.init(elems);
   });
@@ -13,11 +13,12 @@
   <div class="container">
     <div class="row">
       <div class="col s6">
-        <h5 class="white-text">Oratoria <?php echo date('Y'); ?>
-</h5>
+        <div class="custom-navbar primary-color">
+          <img src="../assets/logo.png" alt="Logo" />
+        </div>
       </div>
-            <div class="col s6">
-       <p> © <?php echo date("Y"); ?> Derechos Reservados ACACSEMERSA de R.L.</p>
+      <div class="col s6">
+        <p> © <?php echo date("Y"); ?> Derechos Reservados ACACSEMERSA de R.L.</p>
       </div>
     </div>
   </div>

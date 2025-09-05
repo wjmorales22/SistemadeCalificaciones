@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav class="nav-extended primary-color">
+<nav class="primary-color">
   <div class="nav-wrapper container ">
     <a href="../pages/index.php" class="brand-logo white-text">Oratoria <?php echo date("Y"); ?></a>
     <a href="#" data-target="mobile-menu" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>

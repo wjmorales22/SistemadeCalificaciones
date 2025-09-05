@@ -1,77 +1,93 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const preguntas = [
+    "Pregunta 1",
+    "Pregunta 2",
+    "Pregunta 3",
+    "Pregunta 4",
+    "Pregunta 5",
+    "Pregunta 6",
+    "Pregunta 7",
+    "Pregunta 8",
+    "Pregunta 9",
+    "Pregunta 10",
+  ];
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const preguntas = [
-        "Pregunta 1",
-        "Pregunta 2",
-        "Pregunta 3",
-        "Pregunta 4",
-        "Pregunta 5",
-        "Pregunta 6",
-        "Pregunta 7",
-        "Pregunta 8",
-        "Pregunta 9",
-        "Pregunta 10",
-      ];
+  const container = document.getElementById("preguntas-container");
 
-      const container = document.getElementById("preguntas-container");
+  preguntas.forEach((texto, index) => {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.style.marginBottom = "30px";
 
-      preguntas.forEach((texto, index) => {
-        const row = document.createElement("div");
-        row.className = "row";
-        row.style.marginBottom = "30px";
+    const colTexto = document.createElement("div");
+    colTexto.className = "col s12";
+    colTexto.innerHTML = `<span class="black-text" style="font-weight:600; font-size:1.1rem;">${texto}</span>`;
+    row.appendChild(colTexto);
 
-        const colTexto = document.createElement("div");
-        colTexto.className = "col s12";
-        colTexto.innerHTML = `<span class="black-text" style="font-weight:600; font-size:1.1rem;">${texto}</span>`;
-        row.appendChild(colTexto);
+    const colRadios = document.createElement("div");
+    colRadios.className = "col s12";
 
-        const colRadios = document.createElement("div");
-        colRadios.className = "col s12";
+    for (let n = 1; n <= 5; n++) {
+      const label = document.createElement("label");
+      label.style.marginRight = "20px";
 
-        for (let n = 1; n <= 5; n++) {
-          const label = document.createElement("label");
-          label.style.marginRight = "20px";
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = "pregunta_" + index;
+      input.value = n; // Valor numérico importante
+      input.id = `pregunta_${index}_opcion_${n}`;
 
-          const input = document.createElement("input");
-          input.type = "radio";
-          input.name = "pregunta_" + index;
-          input.value = n;
+      const span = document.createElement("span");
+      span.textContent = n;
 
-          const span = document.createElement("span");
-          span.textContent = n;
+      label.appendChild(input);
+      label.appendChild(span);
+      colRadios.appendChild(label);
+    }
 
-          label.appendChild(input);
-          label.appendChild(span);
-          colRadios.appendChild(label);
-        }
+    row.appendChild(colRadios);
+    container.appendChild(row);
+  });
 
-        row.appendChild(colRadios);
-        container.appendChild(row);
-      });
+  const form = document.getElementById("evalForm");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      document.getElementById("evalForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+    const respuestasList = document.getElementById("respuestas-list");
+    respuestasList.innerHTML = "";
 
-        const respuestasList = document.getElementById("respuestas-list");
-        respuestasList.innerHTML = "";
+    let suma = 0;
+    let cantidad = 0;
 
-        preguntas.forEach((texto, index) => {
-          const valorRadio = document.querySelector(`input[name="pregunta_${index}"]:checked`);
-          const valor = valorRadio ? valorRadio.value : "sin calificar";
-          const li = document.createElement("li");
-          li.textContent = `${texto}: ${valor}`;
-          respuestasList.appendChild(li);
-        });
+    preguntas.forEach((texto, index) => {
+      const valorRadio = document.querySelector(`input[name="pregunta_${index}"]:checked`);
+      const valor = valorRadio ? parseInt(valorRadio.value, 10) : null;
 
-        document.getElementById("result").style.display = "block";
+      if (valor !== null) {
+        suma += valor;
+        cantidad++;
+      }
 
-        this.reset();
-      });
+      const li = document.createElement("li");
+      li.textContent = `${texto}: ${valor !== null ? valor : "sin calificar"}`;
+      respuestasList.appendChild(li);
     });
 
-    function limpiarSeleccion() {
-      const radios = document.querySelectorAll('input[type="radio"]');
-      radios.forEach((radio) => (radio.checked = false));
-      document.getElementById("result").style.display = "none";
+    const promedio = cantidad > 0 ? (suma / cantidad).toFixed(2) : 0;
+    const promedioElemento = document.getElementById("promedio");
+    if (promedioElemento) {
+      promedioElemento.textContent = `Promedio: ${promedio}`;
     }
-  
+
+    documnt.getElementById("result").style.display = "block";
+    const waves = M.Waves;
+    waves.calm(); // limpia todos los efectos activados
+
+  });
+});
+
+function limpiarSeleccion() {
+  const radios = document.querySelectorAll('input[type="radio"]');
+  radios.forEach(radio => (radio.checked = false));
+  document.getElementById("result").style.display = "none";
+}

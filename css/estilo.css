@@ -11,6 +11,9 @@ a {
 
 /* Opcional: cambiar navbar */
 nav {
+    flex-shrink: 0;
+    color: white;
+    
     background-color: #01a08e !important;
 }
 
@@ -30,7 +33,12 @@ main {
 footer {
     flex-shrink: 0;
     color: white;
-    padding: 1rem;
+    
     margin-top: 20px;
     background-color: #01a08e !important;
+    height: 10%;
 }
+  .custom-navbar img {
+    margin-top: 12px;
+    height: 40px;
+  }
