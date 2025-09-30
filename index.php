@@ -34,16 +34,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #1565c0;
-            /* color azul material */
             padding: 0 20px;
             height: 64px;
-            /* altura típica de navbar */
         }
 
         .custom-navbar img {
             height: 48px;
-            /* ajusta la altura de la imagen */
         }
     </style>
 </head>
@@ -58,7 +54,7 @@
             <h3 class="blue-text text-darken-3">Sistema de Calificación para Oratoria</h3>
 
             <div class="section">
-                <a href="login.php" class="btn-large waves-effect waves-light primary-color">Iniciar Sesión</a>
+                <a href="auth/login.php" class="btn-large waves-effect waves-light primary-color">Iniciar Sesión</a>
                 <a href="register.php" class="btn-large waves-effect waves-light primary-color">Registrarse</a>
             </div>
         </div>

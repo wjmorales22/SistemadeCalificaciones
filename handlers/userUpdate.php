@@ -1,5 +1,5 @@
 <?php
-include '../conexion.php';
+include '../db/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ids = $_POST['id'] ?? [];
@@ -17,13 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     foreach ($ids as $index => $id) {
         $id = (int) $id;
-        // Escapar datos con real_escape_string o usar prepared statements
         $nombre = $mysqli->real_escape_string($nombres[$index]);
         $email = $mysqli->real_escape_string($emails[$index]);
         $role_id = (int) $role_ids[$index];
         $activo = in_array($id, $activos_post) ? 1 : 0;
 
-        // Admins siempre boton habilitado activo
         $boton_habilitado = ($roles[$role_id] === 'admin') ? 1 : $boton_habilitado_todos;
 
         $sql = "UPDATE usuarios SET 
@@ -37,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mysqli->query($sql);
     }
 
-    header("Location: gestionarUsuarios.php?msg=actualizacion_exitosa");
+    header("Location: /oratoria/pages/gestionarUsuarios.php?msg=actualizacion_exitosa");
     exit;
 }
 ?>

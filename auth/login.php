@@ -1,14 +1,12 @@
 <?php 
-include 'conexion.php'; 
+include '../db/conexion.php'; 
 session_start();
 
-// Si ya está logueado, redirige
 if (isset($_SESSION['user_id'])) {
     header("Location: /oratoria/pages/index.php");
     exit;
 }
 
-// Obtener mensaje flash si existe
 $message = $_SESSION['message'] ?? '';
 unset($_SESSION['message']);
 
@@ -62,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="../assets/css/estilo.css" />
 </head>
 <body class="blue lighten-3">
     <nav class="nav-extended primary-color">

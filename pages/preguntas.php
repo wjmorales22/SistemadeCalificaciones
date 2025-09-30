@@ -29,11 +29,7 @@
     </div>
 </main>
 
-<!-- Materialize JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-<!-- Tu JS externo -->
-<script src="../js/formulario.js"></script>
-<script src="../js/promedio.js"></script>
+<script src="../assets/js/formulario.js"></script>
+<script src="../assets/js/promedio.js"></script>
 
 <?php include "../layout/footer.php" ?>

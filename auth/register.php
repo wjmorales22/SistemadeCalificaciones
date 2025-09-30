@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Registro de usuario</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../assets/css/estilo.css">
 </head>
 
 <body class="blue lighten-5">
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="nav-wrapper container">
             <a href="../pages/index.php" class="brand-logo white-text">Oratoria</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php" class="white-text">Inicio</a></li>
+                <li><a href="../index.php" class="white-text">Inicio</a></li>
             </ul>
         </div>
     </nav>

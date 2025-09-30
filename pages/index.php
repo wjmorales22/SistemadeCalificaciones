@@ -1,7 +1,7 @@
 <?php include '../layout/header.php';
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: /oratoria/login.php");
+  header("Location: /oratoria/auth/login.php");
   exit;
 }
 if ($_SESSION['role_id'] == 1) {
@@ -22,7 +22,7 @@ if ($_SESSION['role_id'] == 1) {
         </div>
         <div class="row">
           <a href="gestionarUsuarios.php" class="waves-effect waves-light btn primary-color white-text">Gestionar usuarios</a>
-          <a href="#estudiantes.php" class="waves-effect waves-light btn primary-color white-text">Gestionar estudiantes y
+          <a href="gestionarEstudiantes.php" class="waves-effect waves-light btn primary-color white-text">Gestionar estudiantes y
             notas</a>
         </div>
       <?php endif; ?>

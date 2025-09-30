@@ -1,7 +1,6 @@
 <?php
-include '../conexion.php';
+include '../db/conexion.php';
 
-// Obtener usuarios y roles
 $result = $mysqli->query("SELECT * FROM usuarios");
 if (!$result) {
     die("Error en consulta: " . $mysqli->error);
@@ -15,7 +14,6 @@ while ($rowRol = $rolesResult->fetch_assoc()) {
     $roles[$rowRol['id']] = $rowRol['nombre'];
 }
 
-// Determinar estado global actual del botón habilitado para los no-admin
 $botonGlobalActivo = true;
 while ($rowCheck = $result->fetch_assoc()) {
     $rolName = strtolower($roles[$rowCheck['role_id']] ?? '');
@@ -57,7 +55,7 @@ include '../layout/header.php';
       </label>
     </p>
 
-    <form method="POST" action="actualizarUsuario.php" id="formUsuarios">
+    <form method="POST" action="../handlers/user_update.php" id="formUsuarios">
       <input type="hidden" name="boton_habilitado_todos" id="boton_habilitado_todos_hidden" value="<?php echo $botonGlobalActivo ? '1' : '0'; ?>">
 
       <table class="highlight responsive-table">
@@ -110,7 +108,7 @@ include '../layout/header.php';
 
       <br />
 
-      <button class="btn waves-effect waves-light" type="submit">Guardar cambios</button>
+      <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i> Guardar</button>
     </form>
   </div>
 </main>

@@ -1,19 +1,15 @@
-/* Sobrescribe el color primario (blue) */
 .primary-color {
     background-color: #01a08e !important;
     color: #ffffff !important;
 }
 
-/* Cambiar color de enlaces y otros elementos si quisieras */
 a {
     color: #01a08e !important;
 }
 
-/* Opcional: cambiar navbar */
 nav {
     flex-shrink: 0;
     color: white;
-    
     background-color: #01a08e !important;
 }
 
@@ -27,18 +23,39 @@ body {
 
 main {
     flex: 1 0 auto;
-    /* El contenido principal ocupa todo el espacio posible */
 }
 
 footer {
     flex-shrink: 0;
     color: white;
-    
+
     margin-top: 20px;
     background-color: #01a08e !important;
     height: 10%;
 }
-  .custom-navbar img {
+
+.custom-navbar img {
     margin-top: 12px;
     height: 40px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    font-size: 0;
+    width: 0;
+    overflow: hidden;
   }
+
+  .brand-logo::before {
+    content: "SC";  
+    font-size: 1.5rem;
+    color: white;
+    display: inline-block;
+  }
+}

@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-// Control acceso: si no está logueado redirecciona a login
-if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
-  exit;
-}
-
 if ($_SESSION['role_id'] == 1) {
   $mensaje = "Bienvenido admin " . htmlspecialchars($_SESSION['nombre']);
 } else {
