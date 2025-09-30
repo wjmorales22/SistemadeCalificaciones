@@ -1,5 +1,10 @@
 <?php
 include '../db/conexion.php';
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: /oratoria/auth/login.php");
+  exit;
+}
 
 $result = $mysqli->query("SELECT id, nombre, promedio FROM estudiantes");
 if (!$result) {
@@ -9,14 +14,51 @@ if (!$result) {
 include '../layout/header.php';
 ?>
 
+
 <main>
+  <?php
+  if (isset($_GET['msg']) && $_GET['msg'] === 'actualizacion_exitosa') {
+    echo '<div id="mensaje-exito" class="row" style="margin-top:20px;">'
+      . '<div class="col s12 m6 offset-m3">'
+      . '<div class="card-panel green lighten-4 green-text text-darken-4 center-align" style="transition: opacity 0.5s;">'
+      . '<i class="material-icons left">check_circle</i>'
+      . 'Actualización exitosa'
+      . '</div>'
+      . '</div>'
+      . '</div>';
+  }
+  ?>
+
   <div class="container">
-<div class="container header-container">
-  <h4>Gestión de Estudiantes</h4>
-  <a class="waves-effect waves-light btn modal-trigger primary-color" href="#modalAgregarEstudiante">
-    <i class="material-icons left">add</i> Agregar Estudiante
-  </a>
-</div>
+    <div class="container header-container">
+      <h4>Gestión de Estudiantes</h4>
+      <a class="waves-effect waves-light btn modal-trigger primary-color" href="#modalAgregarEstudiante">
+        <i class="material-icons left">add</i> Agregar Estudiante
+      </a>
+      <!-- Modal para agregar estudiante -->
+      <div id="modalAgregarEstudiante" class="modal">
+        <div class="modal-content">
+          <h4>Agregar Estudiante</h4>
+          <form id="formAgregarEstudiante" method="POST" action="../handlers/studentsAdd.php">
+            <div class="input-field">
+              <input id="nombre" name="nombre" type="text" required>
+              <label for="nombre">Nombre</label>
+            </div>
+            <div class="input-field">
+              <input id="promedio" name="promedio" type="number" min="0" max="10" step="0.01">
+              <label for="promedio">Promedio (opcional)</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">
+              <i class="material-icons left">save</i> Guardar
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+      </div>
+
+    </div>
 
 
     <form method="POST" action="../handlers/studentsUpdate.php" id="formUsuarios">
@@ -58,7 +100,7 @@ include '../layout/header.php';
 
       <br />
       <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i> Guardar
-</button>
+      </button>
     </form>
   </div>
 </main>
@@ -80,6 +122,23 @@ include '../layout/header.php';
         form.submit();
       }
     });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
+  });
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var mensaje = document.getElementById('mensaje-exito');
+    if (mensaje) {
+      setTimeout(function () {
+        mensaje.style.opacity = '0';
+        setTimeout(function () {
+          mensaje.remove();
+        }, 500); // Espera la transición
+      }, 5000); // 5 segundos
+    }
   });
 </script>
 
