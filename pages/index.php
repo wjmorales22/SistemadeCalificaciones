@@ -18,7 +18,6 @@ if ($_SESSION['role_id'] == 1) {
     <div class="row">
       <?php if ($_SESSION['role_id'] == 1): // Solo admin ?>
         <div class="row">
-          <a href="/oratoria/pages/dashboard.php" class="btn primary-color white-text">Ir a Dashboard</a>
         </div>
         <div class="row">
           <a href="gestionarUsuarios.php" class="waves-effect waves-light btn primary-color white-text">Gestionar usuarios</a>

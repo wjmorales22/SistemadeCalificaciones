@@ -31,7 +31,6 @@
     </ul>
   </div>
 
-  <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
     <li class="divider" tabindex="-1"></li>
     <li><a href="#config">Configuración</a></li>
@@ -40,7 +39,6 @@
   </ul>
 </nav>
 
-<!-- Sidenav para dispositivos móviles -->
 <ul class="sidenav" id="mobile-menu">
   <li class="divider" tabindex="-1"></li>
   <li><a href="../pages/index.php" >Inicio</a></li>
